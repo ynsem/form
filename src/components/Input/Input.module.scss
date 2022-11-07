@@ -1,0 +1,56 @@
+@import '../../theme/colors.scss';
+@import '../../theme/sizes.scss';
+
+.label-container {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: $gap-m;
+  left: $gap-s;
+  transform: translateY(-50%);
+
+  color: $dark60;
+  font-size: $font-m;
+  white-space: nowrap;
+
+  pointer-events: none;
+  transition: all .2s ease-in-out;
+}
+
+.input {
+  box-sizing: border-box;
+  outline: none;
+
+  width: 100%;
+  height: $el-hight;
+
+  margin-bottom: $gap-m;
+  padding: $gap-s;
+  padding-top: $gap-m;
+
+  border: 1px solid $dark15;
+  border-radius: $border-radius;
+
+  color: $dark;
+  font-size: $font-m;
+
+  &:hover {
+    border-color: $dark20;
+  }
+
+  &:focus {
+    border-color: $primary;
+  }
+}
+
+.input:focus~.label {
+  font-size: $font-s;
+  top: $gap-xs;
+}
+
+.input:not([value=""])~.label {
+  font-size: $font-s;
+  top: $gap-xs;
+}
