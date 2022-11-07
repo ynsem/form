@@ -1,0 +1,23 @@
+@import '../../theme/colors.scss';
+@import '../../theme/sizes.scss';
+
+.button {
+  width: 100%;
+  height: $el-hight;
+
+  background-color: $primary;
+  border: none;
+  border-radius: $border-radius;
+
+  color: $white;
+
+  font-size: $font-m;
+
+  &:hover {
+    background-color: $primaryHover;
+  }
+
+  &:active {
+    background-color: $primaryActive;
+  }
+}
