@@ -1,0 +1,42 @@
+@import '../../theme/colors.scss';
+@import '../../theme/sizes.scss';
+
+.plug {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+
+  padding: $gap-l;
+
+  background-color: $info40;
+  border: 1px solid $info100;
+  border-radius: $border-radius;
+
+  font-size: $font-m;
+  color: $info100;
+
+  animation: .8s ease-in-out 0s normal forwards running open;
+
+  @keyframes open {
+    0% {
+      transform: scaleY(0);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+}
+
+.text {
+  margin: 0;
+}
+
+.button {
+  position: absolute;
+  right: $gap-xs;
+  top: $gap-xs;
+  border: none;
+  border-radius: $border-radius;
+  background-color: $info60;
+}
