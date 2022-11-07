@@ -1,3 +1,43 @@
+@import '../../theme/colors.scss';
+@import '../../theme/sizes.scss';
+
 .form {
-  background-color: red;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 500px;
+
+  padding: $gap-l;
+
+  border: 1px solid $dark10;
+  border-radius: $border-radius;
+
+  &-open {
+    animation: .8s ease-in-out 0s normal forwards running open;
+  }
+
+  &-close {
+    animation: .8s ease-in-out 0s normal forwards running close;
+  }
+
+  @keyframes open {
+    0% {
+      transform: scaleY(0);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes close {
+    0% {
+      transform: scaleY(1);
+    }
+
+    100% {
+      transform: scaleY(0);
+    }
+  }
 }
