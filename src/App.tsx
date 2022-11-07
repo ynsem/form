@@ -1,10 +1,12 @@
-import React from 'react';
+import Layout from './components/Layout'
 import Form from './components/Form'
 
 function App() {
   return (
     <div className="App">
-      <Form />
+      <Layout>
+        <Form />
+      </Layout>
     </div>
   );
 }
