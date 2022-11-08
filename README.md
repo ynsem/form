@@ -1,10 +1,8 @@
 # SimpleForm project
-
-## ynsem.form.io
-Won't forget to visit it here [https://ynsem.form.io](https://ynsem.form.io)
+Won't forget to visit it here [https://ynsem.github.io](https://ynsem.github.io)
 
 
-In the project directory, you can run:
+## In the project directory, you can run:
 
 ### `npm start`
 
