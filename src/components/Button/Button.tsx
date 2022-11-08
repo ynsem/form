@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styles from './Button.module.scss'
 
-type PropsType = {
+type TProps = {
   type?: 'submit' | 'button'
   name: string
   isLoading?: boolean
-  onClick: (e: React.FormEvent<HTMLButtonElement>) => void
+  onClick?: (e: React.FormEvent<HTMLButtonElement>) => void
 }
 
 const UiButton = ({
@@ -13,7 +13,7 @@ const UiButton = ({
   name = 'SomeButton',
   isLoading = false,
   onClick,
-}: PropsType) => (
+}: TProps) => (
   <button
     className={styles.button}
     type={type}

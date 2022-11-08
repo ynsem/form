@@ -8,12 +8,10 @@
 
   padding: $gap-l;
 
-  background-color: $info40;
-  border: 1px solid $info100;
+  border: 1px solid;
   border-radius: $border-radius;
 
   font-size: $font-m;
-  color: $info100;
 
   animation: .8s ease-in-out 0s normal forwards running open;
 
@@ -25,6 +23,18 @@
     100% {
       transform: scaleY(1);
     }
+  }
+
+  &-success {
+    background-color: $info40;
+    border-color: $info100;
+    color: $info100;
+  }
+
+  &-error {
+    background-color: $error40;
+    border-color: $error100;
+    color: $error100;
   }
 }
 
@@ -38,5 +48,12 @@
   top: $gap-xs;
   border: none;
   border-radius: $border-radius;
-  background-color: $info60;
+
+  &-success {
+    background-color: $info60;
+  }
+
+  &-error {
+    background-color: $error60;
+  }
 }

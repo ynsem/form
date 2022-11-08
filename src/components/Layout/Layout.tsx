@@ -1,11 +1,11 @@
 import * as React from 'react'
 import styles from './Layout.module.scss';
 
-type PropsType = {
+type TProps = {
   children: React.ReactNode,
 }
 
-const Layout = ({ children }: PropsType) => {
+const Layout = ({ children }: TProps) => {
   return (
     <section className={styles.layout}>
       {children}

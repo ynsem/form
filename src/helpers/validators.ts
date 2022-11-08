@@ -3,3 +3,6 @@ export const validateEmail = (e: string): boolean => {
 
   return validRe.test(e)
 }
+
+// simple password validation
+export const validatePassword = (p: string): boolean => p.length > 4

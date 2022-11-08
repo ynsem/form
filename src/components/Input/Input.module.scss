@@ -43,6 +43,10 @@
   &:focus {
     border-color: $primary;
   }
+
+  &-error {
+    border-color: $error100 !important;
+  }
 }
 
 .input:focus~.label {
