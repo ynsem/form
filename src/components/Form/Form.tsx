@@ -80,6 +80,7 @@ const Form = () => {
   return (
     !isNext ?
       <form className={getFormClass(isOpen)} onSubmit={sendForm}>
+        <h2 className={styles['visually-hidden']}>Form</h2>
         <Input
           type='text'
           name='email'
