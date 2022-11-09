@@ -1,4 +1,4 @@
-import { FormErrors } from "./enums"
+import { FormErrorsTypes } from "../enums"
 
 export type TFormPayload = {
   email: string
@@ -6,5 +6,5 @@ export type TFormPayload = {
 }
 
 export type TFormErrors = {
-  [key in FormErrors]: boolean
+  [key in FormErrorsTypes]: string
 }

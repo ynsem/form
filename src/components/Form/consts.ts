@@ -1,1 +1,0 @@
-export const NEXT_STEP_TIME = 1000 //1s

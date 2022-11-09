@@ -1,7 +1,7 @@
 import styles from './Plug.module.scss'
 
 type TProps = {
-  isError?: boolean
+  error?: string
 }
 
 //refresh the browser, everything will start again, made on purpose
@@ -9,14 +9,14 @@ const reload = () => {
   window.location.reload()
 }
 
-const getPlugClass = (isError: boolean): string => `${styles.plug} ${!isError ? styles['plug-success'] : styles['plug-error']}`
+const getPlugClass = (error: string): string => `${styles.plug} ${!error ? styles['plug-success'] : styles['plug-error']}`
 
-const getButtonClass = (isError: boolean): string => `${styles.button} ${!isError ? styles['button-success'] : styles['button-error']}`
+const getButtonClass = (error: string): string => `${styles.button} ${!error ? styles['button-success'] : styles['button-error']}`
 
-const Plug = ({ isError = false }: TProps) => (
-  <section className={getPlugClass(isError)}>
+const Plug = ({ error = '' }: TProps) => (
+  <section className={getPlugClass(error)}>
     <button
-      className={getButtonClass(isError)}
+      className={getButtonClass(error)}
       type='button'
       onClick={reload}
     >
@@ -24,7 +24,7 @@ const Plug = ({ isError = false }: TProps) => (
     </button>
 
     {
-      isError &&
+      error &&
       <p className={styles.text}>
         Something wrong with server or the internet, but...
       </p>

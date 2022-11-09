@@ -7,9 +7,9 @@ import Plug from '../Plug';
 import { postRequest } from '../../api'
 import { validateEmail, validatePassword } from '../../helpers/validators'
 
-import { NEXT_STEP_TIME } from './consts';
-import { TFormPayload, TFormErrors } from './types'
-import { FormErrors } from './enums'
+import { NEXT_STEP_TIME } from '../../constants';
+import { TFormPayload, TFormErrors } from '../../types'
+import { FormErrorsTypes, FormErrors } from '../../enums'
 
 import styles from './Form.module.scss';
 
@@ -23,15 +23,15 @@ const Form = () => {
   const [password, setPassword] = React.useState<string>('')
 
   const [errors, setErrors] = React.useState<TFormErrors>({
-    request: false,
-    email: false,
-    password: false,
+    request: '',
+    email: '',
+    password: '',
   })
 
-  const errorsController = (name: FormErrors, isError = true): void => {
+  const errorsController = (name: FormErrorsTypes, error = ''): void => {
     setErrors((prevState) => ({
       ...prevState,
-      [name]: isError,
+      [name]: error,
     }))
   }
 
@@ -43,9 +43,9 @@ const Form = () => {
   }
 
   const fromValidator = (email: string, password: string): boolean => {
-    if (!validateEmail(email)) errorsController(FormErrors.Email)
+    if (!validateEmail(email)) errorsController(FormErrorsTypes.Email, FormErrors.Email)
 
-    if (!validatePassword(password)) errorsController(FormErrors.Password)
+    if (!validatePassword(password)) errorsController(FormErrorsTypes.Password, FormErrors.Password)
 
     if (validateEmail(email) && validatePassword(password)) return true
 
@@ -53,12 +53,12 @@ const Form = () => {
   }
 
   const onChangeEmail = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    errorsController(FormErrors.Email, false)
+    errorsController(FormErrorsTypes.Email)
     setEmail(e.target.value)
   }
 
   const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    errorsController(FormErrors.Password, false)
+    errorsController(FormErrorsTypes.Password)
     setPassword(e.target.value)
   }
 
@@ -70,8 +70,8 @@ const Form = () => {
         .then(response => {
           if (response.ok) nextStep()
         })
-        .catch(() => {
-          errorsController(FormErrors.Request)
+        .catch((error) => {
+          errorsController(FormErrorsTypes.Request, String(error))
           nextStep()
         })
     }
@@ -87,7 +87,7 @@ const Form = () => {
           label='Email'
           value={email}
           onChange={onChangeEmail}
-          isError={errors.email}
+          error={errors.email}
         />
         <Input
           type='password'
@@ -96,14 +96,14 @@ const Form = () => {
           label='Password'
           value={password}
           onChange={onChangePassword}
-          isError={errors.password} />
+          error={errors.password} />
         <Button
           type='submit'
           name="Submit"
         />
       </form>
       :
-      <Plug isError={errors.request} />
+      <Plug error={errors.request} />
   )
 }
 

@@ -3,6 +3,7 @@
 
 .label-container {
   position: relative;
+  margin-bottom: $gap-m;
 }
 
 .label {
@@ -17,6 +18,10 @@
 
   pointer-events: none;
   transition: all .2s ease-in-out;
+
+  &-error {
+    color: $error100;
+  }
 }
 
 .input {
@@ -26,7 +31,6 @@
   width: 100%;
   height: $el-hight;
 
-  margin-bottom: $gap-m;
   padding: $gap-s;
   padding-top: $gap-m;
 
@@ -57,4 +61,11 @@
 .input:not([value=""])~.label {
   font-size: $font-s;
   top: $gap-xs;
+}
+
+.error-message {
+  position: absolute;
+  margin: 0;
+  font-size: $font-s;
+  color: $error100;
 }
