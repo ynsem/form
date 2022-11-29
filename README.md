@@ -1,5 +1,5 @@
 # SimpleForm project
-Won't forget to visit it here [https://ynsem.github.io](https://ynsem.github.io)
+Won't forget to visit it here [https://ynsem.github.io/form](https://ynsem.github.io/form)
 
 
 ## In the project directory, you can run:
